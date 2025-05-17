@@ -98,4 +98,10 @@ p {
   font-size: 16px;
   user-select: none;
   pointer-events: none;
+
+ /* If using an external link */
+body {
+  cursor: url('https://cur.cursors-4u.net/games/gam-14/gam1352.cur'), auto;
+}
+
 }
