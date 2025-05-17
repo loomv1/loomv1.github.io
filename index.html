@@ -1,18 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Game Menu</title>
-  <link rel="stylesheet" href="menu.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Hub</title>
+  <link rel="stylesheet" href="menu.css" />
 </head>
 <body>
-  <div class="menu-container">
-    <h1>🎮 Game Hub</h1>
-    <p>Select a game to play:</p>
-    <div class="game-links">
-      <a href="404_escape.html" class="game-button">404 Escape</a>
-      <a href="#" class="game-button">Glitch Runner (Coming Soon)</a>
-      <a href="#" class="game-button">Word War (Coming Soon)</a>
-    </div>
-  </div>
+  <header>
+    <div class="logo">🎮 Game Hub</div>
+  </header>
+  <main>
+    <section class="game-grid">
+      <div class="game-card">
+        <img src="404_escape_cover.png" alt="404 Escape Cover" />
+        <div class="game-title">404 Escape</div>
+        <a href="404_escape.html" class="play-button">Play</a>
+      </div>
+      <!-- Placeholder for future games -->
+      <div class="game-card placeholder">
+        <div class="game-title">Coming Soon</div>
+      </div>
+      <div class="game-card placeholder">
+        <div class="game-title">Coming Soon</div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
