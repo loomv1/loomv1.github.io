@@ -1,34 +1,46 @@
-// Total fragments needed to collect
 const totalFragments = 5;
 let collectedFragments = 0;
 
-// Select all fragment elements
+const gameArea = document.getElementById("game-area");
 const fragmentElements = document.querySelectorAll(".glitch-box");
 
-// Initialize fragments
 function resetFragments() {
   collectedFragments = 0;
   fragmentElements.forEach(box => {
     box.textContent = "[ ]";
     box.style.borderColor = "transparent";
-    box.style.color = "#555";
+    box.style.color = "rgba(85, 85, 85, 0.8)";
   });
 }
 
-// Handle collecting a fragment when clicked
+// Place boxes randomly inside the game area
+function randomizePositions() {
+  const areaRect = gameArea.getBoundingClientRect();
+
+  fragmentElements.forEach(box => {
+    // Random position inside the game area (accounting for box size)
+    const maxX = areaRect.width - box.offsetWidth;
+    const maxY = areaRect.height - box.offsetHeight;
+
+    const randomX = Math.floor(Math.random() * maxX);
+    const randomY = Math.floor(Math.random() * maxY);
+
+    box.style.left = randomX + "px";
+    box.style.top = randomY + "px";
+  });
+}
+
 function collectFragment(index) {
   const box = fragmentElements[index];
-  
-  if (box.textContent === "[✓]") return; // Already collected
 
-  // 20% chance to reset progress (glitch)
-  if (Math.random() < 0.2) {
+  if (box.textContent === "[✓]") return;
+
+  if (Math.random() < 0.3) { // increased glitch chance to 30%
     alert("Uh oh! A glitch wiped your progress! Try again.");
     resetFragments();
     return;
   }
 
-  // Mark this fragment collected
   box.textContent = "[✓]";
   box.style.borderColor = "lime";
   box.style.color = "lime";
@@ -41,10 +53,10 @@ function collectFragment(index) {
   }
 }
 
-// Add event listeners for clicks
 fragmentElements.forEach((box, i) => {
   box.addEventListener("click", () => collectFragment(i));
 });
 
-// Initialize on page load
+// On load
 resetFragments();
+randomizePositions();
