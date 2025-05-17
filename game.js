@@ -13,12 +13,10 @@ function resetFragments() {
   });
 }
 
-// Place boxes randomly inside the game area
 function randomizePositions() {
   const areaRect = gameArea.getBoundingClientRect();
 
   fragmentElements.forEach(box => {
-    // Random position inside the game area (accounting for box size)
     const maxX = areaRect.width - box.offsetWidth;
     const maxY = areaRect.height - box.offsetHeight;
 
@@ -35,7 +33,7 @@ function collectFragment(index) {
 
   if (box.textContent === "[✓]") return;
 
-  if (Math.random() < 0.3) { // increased glitch chance to 30%
+  if (Math.random() < 0.3) {
     alert("Uh oh! A glitch wiped your progress! Try again.");
     resetFragments();
     return;
@@ -57,6 +55,8 @@ fragmentElements.forEach((box, i) => {
   box.addEventListener("click", () => collectFragment(i));
 });
 
-// On load
-resetFragments();
-randomizePositions();
+// Initialize after DOM content loads
+window.addEventListener("DOMContentLoaded", () => {
+  resetFragments();
+  randomizePositions();
+});
