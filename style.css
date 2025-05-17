@@ -1,35 +1,100 @@
+/* General page styles */
 body {
-  background-color: #0d0d0d;
-  color: #fff;
-  font-family: monospace;
+  background: #121212;
+  color: #eee;
+  font-family: Arial, sans-serif;
+  padding: 40px 20px;
   text-align: center;
-  padding-top: 10vh;
-  animation: glitch 1s infinite;
+  margin: 0;
 }
 
-@keyframes glitch {
-  0% { text-shadow: 2px 2px red; }
-  50% { text-shadow: -2px -2px blue; }
-  100% { text-shadow: 2px 2px red; }
+h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
 }
 
+/* Game area container */
+#game-area {
+  position: relative;
+  height: 400px;
+  margin-top: 30px;
+  border: 1px solid #333;
+  background: #121212;
+  overflow: hidden;
+}
+
+/* Glitch boxes to click */
 .glitch-box {
-  margin: 20px auto;
-  border: 2px dashed red;
-  width: 200px;
-  height: 50px;
-  line-height: 50px;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background: rgba(34, 34, 34, 0.3);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 18px;
+  color: rgba(85, 85, 85, 0.5);
   cursor: pointer;
-  transition: border 0.3s;
+  user-select: none;
+  text-align: center;
+  transition: border-color 0.3s, color 0.3s, background-color 0.3s;
+  filter: drop-shadow(0 0 1px #000);
 }
 
 .glitch-box:hover {
-  border: 2px dashed lime;
+  border-color: #00ff99;
+  color: #00ff99;
+  background-color: rgba(0, 255, 153, 0.3);
+  filter: drop-shadow(0 0 8px #00ff99);
 }
 
+/* Subtle hint text */
 .subtle-hint {
-  margin-top: 40px;
-  font-size: 0.9em;
-  color: #aaaaaa;
+  margin-top: 20px;
   font-style: italic;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Fake "Return to Home" link */
+#fake-link {
+  color: #888;
+  text-decoration: none;
+  cursor: default;
+}
+
+#fake-link:hover {
+  text-decoration: underline;
+}
+
+/* Hidden real buttons inside text - very small and nearly invisible */
+.hidden-button {
+  background: transparent;
+  border: none;
+  color: rgba(85, 85, 85, 0.1);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 5px;
+  user-select: none;
+  transition: color 0.3s;
+}
+
+.hidden-button:hover {
+  color: lime; /* Reveals on hover */
+}
+
+/* Fake buttons scattered around to confuse */
+.fake-button {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: rgba(255, 0, 0, 0.2);
+  border: 1px solid rgba(255, 0, 0, 0.1);
+  border-radius: 4px;
+  color: rgba(255, 0, 0, 0.2);
+  font-size: 20px;
+  cursor: default;
+  user-select: none;
+  pointer-events: none; /* not clickable */
 }
