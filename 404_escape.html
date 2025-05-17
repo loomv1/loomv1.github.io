@@ -4,11 +4,104 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>404 Not Found</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #121212;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    #game-area {
+      position: relative;
+      height: 400px;
+      margin-top: 30px;
+      border: 1px solid #333;
+      background: #121212;
+      overflow: hidden;
+    }
+
+    .glitch-box {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      background: rgba(34, 34, 34, 0.3);
+      border: 1px solid transparent;
+      border-radius: 6px;
+      font-size: 18px;
+      color: rgba(85, 85, 85, 0.5);
+      cursor: pointer;
+      user-select: none;
+      text-align: center;
+      transition: border-color 0.3s, color 0.3s, background-color 0.3s;
+      filter: drop-shadow(0 0 1px #000);
+    }
+
+    .glitch-box:hover {
+      border-color: #00ff99;
+      color: #00ff99;
+      background-color: rgba(0, 255, 153, 0.3);
+      filter: drop-shadow(0 0 8px #00ff99);
+    }
+
+    .subtle-hint {
+      margin-top: 20px;
+      font-style: italic;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    #fake-link {
+      color: #888;
+      text-decoration: none;
+      cursor: default;
+    }
+
+    #fake-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Hidden real buttons inside text - very small and nearly invisible */
+    .hidden-button {
+      background: transparent;
+      border: none;
+      color: rgba(85, 85, 85, 0.1);
+      font-size: 14px;
+      cursor: pointer;
+      padding: 0;
+      margin-left: 5px;
+      user-select: none;
+      transition: color 0.3s;
+    }
+
+    .hidden-button:hover {
+      color: lime; /* Reveals on hover */
+    }
+
+    /* Fake buttons scattered around to confuse */
+    .fake-button {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background: rgba(255, 0, 0, 0.2);
+      border: 1px solid rgba(255, 0, 0, 0.1);
+      border-radius: 4px;
+      color: rgba(255, 0, 0, 0.2);
+      font-size: 20px;
+      cursor: default;
+      user-select: none;
+      pointer-events: none; /* not clickable */
+    }
+  </style>
 </head>
 <body>
   <h1>404 - Page Not Found</h1>
-  <p>The page you are looking for might have been removed or is temporarily unavailable.</p>
+  <p>
+    The page you are looking for might have been removed or is temporarily unavailable.
+    <button class="hidden-button" title="Hidden real button 1">[ ]</button>
+  </p>
 
   <div id="game-area">
     <p><a href="#" id="fake-link" title="This link is broken, or is it?">Return to Home</a></p>
@@ -20,7 +113,16 @@
     <div class="glitch-box" title="This looks suspicious...">[ ]</div>
     <div class="glitch-box" title="This looks suspicious...">[ ]</div>
 
-    <p class="subtle-hint">👀 Pro tip: Sometimes, the clues are hidden in plain <code>&lt;!-- comments --&gt;</code>.</p>
+    <p class="subtle-hint">
+      👀 Pro tip: Sometimes, the clues are hidden in plain 
+      <code>&lt;!-- comments --&gt;</code>.
+      <button class="hidden-button" title="Hidden real button 2">[ ]</button>
+    </p>
+
+    <!-- Fake buttons scattered to distract -->
+    <button class="fake-button" style="top: 50px; left: 10px;">[ ]</button>
+    <button class="fake-button" style="top: 150px; left: 200px;">[ ]</button>
+    <button class="fake-button" style="top: 300px; left: 350px;">[ ]</button>
   </div>
 
   <script src="game.js"></script>
