@@ -80,21 +80,24 @@ p {
 
 /* Real hidden buttons in text */
 .hidden-button {
-  background: transparent;
+  background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.05);
+  color: rgba(18, 18, 18, 0.01); /* Almost fully transparent against dark background */
   font-size: 13px;
   padding: 0;
-  margin-left: 4px;
+  margin: 0 2px;
   cursor: pointer;
+  user-select: none;
+  transition: color 0.2s ease;
   position: relative;
   z-index: 10;
-  transition: color 0.2s;
 }
 
 .hidden-button:hover {
   color: lime;
+  text-shadow: 0 0 3px lime;
 }
+
 
 /* Fake (decoy) buttons scattered */
 .fake-button {
