@@ -1,100 +1,111 @@
-/* General page styles */
+/* Reset default spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background: #121212;
-  color: #eee;
-  font-family: Arial, sans-serif;
+  color: #eeeeee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 40px 20px;
   text-align: center;
-  margin: 0;
+  min-height: 100vh;
 }
 
+/* Header */
 h1 {
-  font-weight: 700;
   font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
-/* Game area container */
+p {
+  margin: 10px auto;
+  max-width: 600px;
+  font-size: 1rem;
+}
+
+/* Game area layout */
 #game-area {
   position: relative;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 700px;
   height: 400px;
-  margin-top: 30px;
+  background: #1e1e1e;
   border: 1px solid #333;
-  background: #121212;
+  border-radius: 10px;
   overflow: hidden;
 }
 
-/* Glitch boxes to click */
+/* Glitch fragment boxes */
 .glitch-box {
   position: absolute;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  background: rgba(34, 34, 34, 0.3);
-  border: 1px solid transparent;
-  border-radius: 6px;
-  font-size: 18px;
-  color: rgba(85, 85, 85, 0.5);
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  font-size: 14px;
+  color: rgba(200, 200, 200, 0.1);
   cursor: pointer;
-  user-select: none;
   text-align: center;
-  transition: border-color 0.3s, color 0.3s, background-color 0.3s;
-  filter: drop-shadow(0 0 1px #000);
+  transition: all 0.3s ease;
+  z-index: 5;
 }
 
 .glitch-box:hover {
-  border-color: #00ff99;
-  color: #00ff99;
-  background-color: rgba(0, 255, 153, 0.3);
-  filter: drop-shadow(0 0 8px #00ff99);
+  border-color: lime;
+  color: lime;
+  background: rgba(0, 255, 0, 0.1);
+  box-shadow: 0 0 5px lime;
 }
 
 /* Subtle hint text */
 .subtle-hint {
-  margin-top: 20px;
+  color: #777;
   font-style: italic;
-  color: #888;
   font-size: 0.9rem;
+  margin-top: 20px;
 }
 
-/* Fake "Return to Home" link */
+/* Fake broken link */
 #fake-link {
-  color: #888;
-  text-decoration: none;
+  color: #555;
+  text-decoration: underline dotted;
   cursor: default;
 }
 
-#fake-link:hover {
-  text-decoration: underline;
-}
-
-/* Hidden real buttons inside text - very small and nearly invisible */
+/* Real hidden buttons in text */
 .hidden-button {
   background: transparent;
   border: none;
-  color: rgba(85, 85, 85, 0.1);
-  font-size: 14px;
-  cursor: pointer;
+  color: rgba(255, 255, 255, 0.05);
+  font-size: 13px;
   padding: 0;
-  margin-left: 5px;
-  user-select: none;
-  transition: color 0.3s;
+  margin-left: 4px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  transition: color 0.2s;
 }
 
 .hidden-button:hover {
-  color: lime; /* Reveals on hover */
+  color: lime;
 }
 
-/* Fake buttons scattered around to confuse */
+/* Fake (decoy) buttons scattered */
 .fake-button {
   position: absolute;
-  width: 25px;
-  height: 25px;
-  background: rgba(255, 0, 0, 0.2);
-  border: 1px solid rgba(255, 0, 0, 0.1);
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 0, 0, 0.08);
+  border: 1px solid rgba(255, 0, 0, 0.05);
   border-radius: 4px;
-  color: rgba(255, 0, 0, 0.2);
-  font-size: 20px;
-  cursor: default;
+  color: rgba(255, 0, 0, 0.1);
+  font-size: 16px;
   user-select: none;
-  pointer-events: none; /* not clickable */
+  pointer-events: none;
 }
