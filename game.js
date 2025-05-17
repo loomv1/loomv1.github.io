@@ -1,62 +1,57 @@
-const totalFragments = 5;
-let collectedFragments = 0;
-
-const gameArea = document.getElementById("game-area");
-const fragmentElements = document.querySelectorAll(".glitch-box");
-
-function resetFragments() {
-  collectedFragments = 0;
-  fragmentElements.forEach(box => {
-    box.textContent = "[ ]";
-    box.style.borderColor = "transparent";
-    box.style.color = "rgba(85, 85, 85, 0.8)";
-  });
+body {
+  background: #121212;
+  color: #eee;
+  font-family: Arial, sans-serif;
+  padding: 40px 20px;
+  text-align: center;
 }
 
-function randomizePositions() {
-  const areaRect = gameArea.getBoundingClientRect();
-
-  fragmentElements.forEach(box => {
-    const maxX = areaRect.width - box.offsetWidth;
-    const maxY = areaRect.height - box.offsetHeight;
-
-    const randomX = Math.floor(Math.random() * maxX);
-    const randomY = Math.floor(Math.random() * maxY);
-
-    box.style.left = randomX + "px";
-    box.style.top = randomY + "px";
-  });
+#game-area {
+  position: relative;
+  height: 400px;
+  margin-top: 30px;
+  border: 1px solid #333;
+  background: #121212;
+  overflow: hidden;
 }
 
-function collectFragment(index) {
-  const box = fragmentElements[index];
-
-  if (box.textContent === "[✓]") return;
-
-  if (Math.random() < 0.3) {
-    alert("Uh oh! A glitch wiped your progress! Try again.");
-    resetFragments();
-    return;
-  }
-
-  box.textContent = "[✓]";
-  box.style.borderColor = "lime";
-  box.style.color = "lime";
-  collectedFragments++;
-
-  alert(`You found fragment ${collectedFragments} of ${totalFragments}! Keep going! 🔧`);
-
-  if (collectedFragments === totalFragments) {
-    alert("🎉 Congrats! You collected all fragments and escaped the broken page!");
-  }
+.glitch-box {
+  position: absolute;
+  width: 30px;           /* smaller size */
+  height: 30px;          /* smaller size */
+  line-height: 30px;
+  background: rgba(34, 34, 34, 0.3);  /* more transparent */
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 18px;
+  color: rgba(85, 85, 85, 0.5);       /* lighter color */
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  transition: border-color 0.3s, color 0.3s, background-color 0.3s;
+  filter: drop-shadow(0 0 1px #000);
 }
 
-fragmentElements.forEach((box, i) => {
-  box.addEventListener("click", () => collectFragment(i));
-});
+.glitch-box:hover {
+  border-color: #00ff99;
+  color: #00ff99;
+  background-color: rgba(0, 255, 153, 0.3);
+  filter: drop-shadow(0 0 8px #00ff99);
+}
 
-// Initialize after DOM content loads
-window.addEventListener("DOMContentLoaded", () => {
-  resetFragments();
-  randomizePositions();
-});
+.subtle-hint {
+  margin-top: 20px;
+  font-style: italic;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+#fake-link {
+  color: #888;
+  text-decoration: none;
+  cursor: default;
+}
+
+#fake-link:hover {
+  text-decoration: underline;
+}
