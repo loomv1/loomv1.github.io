@@ -1,0 +1,23 @@
+body {
+  background-color: #0d0d0d;
+  color: #fff;
+  font-family: monospace;
+  text-align: center;
+  padding-top: 10vh;
+  animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 2px red; }
+  50% { text-shadow: -2px -2px blue; }
+  100% { text-shadow: 2px 2px red; }
+}
+
+.glitch-box {
+  margin: 20px auto;
+  border: 2px dashed red;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+}
