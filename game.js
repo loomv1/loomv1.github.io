@@ -1,4 +1,5 @@
-const totalFragments = 7; // 5 glitch boxes + 2 hidden buttons
+document.addEventListener("DOMContentLoaded", () => {
+  const totalFragments = 7; // 5 glitch boxes + 2 hidden buttons
 let collectedFragments = 0;
 
 const gameArea = document.getElementById("game-area");
@@ -84,3 +85,6 @@ window.addEventListener("DOMContentLoaded", () => {
   resetFragments();
   randomizePositions();
 });
+
+});
+
