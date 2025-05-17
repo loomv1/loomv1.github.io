@@ -27,40 +27,20 @@ p {
 }
 
 /* Game area layout */
-#game-area {
-  position: relative;
-  margin: 40px auto;
-  width: 90%;
-  max-width: 700px;
-  height: 400px;
-  background: #1e1e1e;
-  border: 1px solid #333;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-/* Glitch fragment boxes */
-.glitch-box {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  line-height: 25px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  font-size: 14px;
-  color: rgba(200, 200, 200, 0.1);
+.hidden-button {
+  background: none;
+  border: none;
+  color: transparent;
+  font-size: 1px;
+  padding: 0;
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
   cursor: pointer;
-  text-align: center;
-  transition: all 0.3s ease;
+  position: absolute; /* Allows placement anywhere */
   z-index: 5;
-}
-
-.glitch-box:hover {
-  border-color: lime;
-  color: lime;
-  background: rgba(0, 255, 0, 0.1);
-  box-shadow: 0 0 5px lime;
+  pointer-events: auto;
 }
 
 /* Subtle hint text */
