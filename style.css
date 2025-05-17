@@ -82,21 +82,28 @@ p {
 .hidden-button {
   background: none;
   border: none;
-  color: rgba(18, 18, 18, 0.01); /* Almost fully transparent against dark background */
-  font-size: 13px;
+  color: transparent; /* Fully invisible text */
+  font-size: 0.1px;    /* Practically invisible size */
   padding: 0;
-  margin: 0 2px;
+  margin: 0;
+  width: 10px;
+  height: 10px;
+  overflow: hidden;
+  opacity: 0;          /* Completely invisible */
   cursor: pointer;
-  user-select: none;
-  transition: color 0.2s ease;
-  position: relative;
-  z-index: 10;
+  position: absolute;  /* Take out of text flow */
+  z-index: 5;
 }
 
 .hidden-button:hover {
+  opacity: 1;
   color: lime;
-  text-shadow: 0 0 3px lime;
+  font-size: 12px;
+  width: auto;
+  height: auto;
+  text-shadow: 0 0 5px lime;
 }
+
 
 
 /* Fake (decoy) buttons scattered */
